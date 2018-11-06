@@ -1,0 +1,27 @@
+.frame-main-cont-head {
+    height: 46px;
+    background-repeat: repeat
+}
+.frame-main-cont-head .nui-toolbar {
+    padding: 10px 10px 0;
+}
+.nui-toolbar-item {
+    float: left;
+    margin-right: 7px;
+    line-height: 30px;
+}
+.nui-btnGroup .nui-btn:only-of-type, .nui-btnGroup .nui-btn:only-of-type .nui-btn-text, .nui-toolbar-item .nui-btn:only-of-type, .nui-toolbar-item .nui-btn:only-of-type .nui-btn-text {
+    border-radius: 3px;
+}
+.nui-btn-hasOnlyIcon .nui-btn-icon {
+    left: 8px;
+}
+.nui-btnGroup .nui-btn:only-of-type, .nui-btnGroup .nui-btn:only-of-type .nui-btn-text, .nui-toolbar-item .nui-btn:only-of-type, .nui-toolbar-item .nui-btn:only-of-type .nui-btn-text {
+     border-radius: 3px;
+}
+.nui-dropdownBtn-arr {
+    position: absolute;
+    top: 12px;
+    right: 9px;
+    cursor: pointer;
+}

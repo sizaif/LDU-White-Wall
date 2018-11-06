@@ -1,0 +1,36 @@
+input{
+    border: 1px solid #c0c0c0;
+    padding: 6px 0px;
+    padding-left: 5px;
+}
+.fxkc{
+    background-color: #F1F3F4;
+    border: none;
+    border-radius: 22px;
+    box-shadow: none;
+    outline: none;
+    opacity: 1;
+    transition: background-color 300ms ease-in-out;
+    transition: opacity 200ms;
+    max-width: 560px;
+}
+input.Input {
+    color: #1a1a1a;
+    height: 24px;
+    line-height: 24px;
+}
+
+.Input {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    padding: 0;
+    overflow: hidden;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+}
