@@ -28,38 +28,32 @@
             User newuser = new User(id,name,pwd,"user");
             UserDaoImp mysql = new UserDaoImp();
             int su =  mysql.insertUser(newuser);
-
+            response.sendRedirect("../SignIN/login.jsp");
         %>
     </div>
 
 
-    <div>
-        <table border="1">
-            <tr>
-                <td>
-                    your info is :
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    name: <%=name%>
-                    name: <%=newuser.getName()%>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    pwd : <%=pwd%>
-                    pwd : <%=newuser.getPwd()%>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    age : <%=age%>
-                    <%--age : <%=newuser.getAge()%>--%>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <%--<div>--%>
+        <%--<table border="1">--%>
+            <%--<tr>--%>
+                <%--<td>--%>
+                    <%--your info is :--%>
+                <%--</td>--%>
+            <%--</tr>--%>
+            <%--<tr>--%>
+                <%--<td>--%>
+                    <%--name: <%=name%>--%>
+                    <%--name: <%=newuser.getName()%>--%>
+                <%--</td>--%>
+            <%--</tr>--%>
+            <%--<tr>--%>
+                <%--<td>--%>
+                    <%--pwd : <%=pwd%>--%>
+                    <%--pwd : <%=newuser.getPwd()%>--%>
+                <%--</td>--%>
+            <%--</tr>--%>
+        <%--</table>--%>
+    <%--</div>--%>
 
 </body>
 </html>

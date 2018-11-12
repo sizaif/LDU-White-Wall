@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="../css/Admin_leftCSS.css" type="text/css" charset="UTF-8">
+    <%--<link rel="stylesheet" href="../css/Admin_leftCSS.css" type="text/css" charset="UTF-8">--%>
 </head>
 <body>
 

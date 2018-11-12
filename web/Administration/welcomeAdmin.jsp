@@ -10,11 +10,11 @@
 <head>
     <title>WelcomeAdmin</title>
     <link rel="stylesheet" href="../css/newtab.css">
-    <frameset rows="*" cols="227,*" framespacing="1" frameborder="yes" border="1" bordercolor="#333333">
-        <frame src="/Administration/Admin_left.jsp" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
-        <frameset rows="110,*" cols="*" framespacing="1" frameborder="yes" border="1" bordercolor="#333333">
-            <frame src="/Administration/Admin_top.jsp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+    <frameset rows="132,*" cols="*" frameborder="yes" border="1" framespacing="0">
+        <frame src="/Administration/Admin_top.jsp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
+        <frameset rows="*" cols="*,250" framespacing="0" frameborder="yes" border="1">
             <frame src="/Administration/Admin_main.jsp" name="mainFrame" id="mainFrame" title="mainFrame" />
+            <frame src="/Administration/Admin_left.jsp" name="rightFrame" scrolling="No" noresize="noresize" id="rightFrame" title="rightFrame" />
         </frameset>
     </frameset>
 </head>

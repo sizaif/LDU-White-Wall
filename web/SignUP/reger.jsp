@@ -62,9 +62,9 @@
                         <li>
                             <input type="password" class="Input" name="pwd2" id="pwd2" placeholder="重复密码"value="">
                         </li>
-                        <li>
-                            <input type="text" class="Input" name="age" placeholder="年龄" id="age">
-                        </li>
+                        <%--<li>--%>
+                            <%--<input type="text" class="Input" name="age" placeholder="年龄" id="age">--%>
+                        <%--</li>--%>
                     </ul>
                     <span><button type="submit" class="wall-sub-btn wall-sub-btn-signup" name="submit">注册</button></span>
                     <span><button type="reset" class="wall-sub-btn wall-sub-btn-signup" name="reset">重置</button></span>

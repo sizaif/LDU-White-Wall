@@ -24,7 +24,7 @@
                         </div>
                         <div class="SignContainer-inner">
                             <div class="Login-content">
-                                <form  name="form"  class="SignFlow" method="get/post" action="/Servlet_Users">
+                                <form  name="form"  class="SignFlow" method="post" action="/Servlet_Users">
                                     <div class="SignFlow-account">
                                         <div class="SignFlow-supportedCountriesSelectContainer"></div>
                                         <div class="SignFlowInput SignFlow-accountInputContainer">
