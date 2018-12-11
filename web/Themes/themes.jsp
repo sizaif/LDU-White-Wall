@@ -6,7 +6,6 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="../login_check_control.jsp"%>
 <html>
 <head>
     <title>Themes</title>

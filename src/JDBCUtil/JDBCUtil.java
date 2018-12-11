@@ -18,7 +18,7 @@ public class JDBCUtil {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, name, pwd);
 
-            System.out.println("数据库连接成功!");
+           // System.out.println("数据库连接成功!");
             return con;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

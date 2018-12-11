@@ -24,12 +24,12 @@
                         </div>
                         <div class="SignContainer-inner">
                             <div class="Login-content">
-                                <form  name="form"  class="SignFlow" method="post" action="/Servlet_Users">
+                                <form  id="form" name="form"  class="SignFlow" method="post" action="/Servlet_Login"  >
                                     <div class="SignFlow-account">
                                         <div class="SignFlow-supportedCountriesSelectContainer"></div>
                                         <div class="SignFlowInput SignFlow-accountInputContainer">
                                             <div class="SignFlow-accountInput Input-wrapper">
-                                                <input class="Input" type="text" name="name" id="username" placeholder="用户名"value="">
+                                                <input class="Input" type="text" name="username" id="username" placeholder="用户名"value="">
                                             </div>
                                             <div class="SignFlowInput-errorMask SignFlowInput-errorMask--hidden"></div>
                                         </div>
@@ -37,17 +37,17 @@
                                     <div class="SignFlow-password">
                                         <div class="SignFlowInput">
                                             <div class="SignFlow-passwordInput Input-wrapper">
-                                                <input class="Input" type="password" name="pwd" id="pwd" value="">
+                                                <input class="Input" type="password" name="password" id="password" value="">
                                             </div>
                                             <div class="SignFlowInput-errorMask SignFlowInput-errorMask--hidden"></div>
                                         </div>
                                         <button tabindex="-1" type="button" class="Button SignFlow-switchPassword Button--plain"></button>
                                     </div>
-                                    <button type="submit" class="Button SignFlow-submitButton Button--primary Button--blue" name="submit">登陆</button>
+                                    <span><button type="submit" class="Button SignFlow-submitButton Button--primary Button--blue"  name="submit" >登陆</button></span>
                                 </form>
                             </div>
                             <div class="SignContainer-switch">
-                                没有帐号？
+                                无账号?
                                 <span>
                                     <button type="button" onclick="javascrtpt:window.location.href='../SignUP/reger.jsp'" >注册一个</button>
                                 </span>
@@ -63,4 +63,5 @@
     </div>
 
 </body>
+
 </html>

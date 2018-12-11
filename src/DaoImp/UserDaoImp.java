@@ -20,14 +20,14 @@ public class UserDaoImp implements UserDao {
         PreparedStatement pstm = null;
 
         try {
-            String sql = "insert into users (uname,upwd,upermission) values(?,?,?)";
+            String sql = "insert into users (uname,upwd,upermission,unick) values(?,?,?,?)";
             pstm = conn.prepareStatement(sql);
             //pstm.setInt(1,u.getId());
 
             pstm.setString(1,u.getName());
             pstm.setString(2,u.getPwd());
             pstm.setString(3,u.getPermission());
-
+            pstm.setString(4,u.getNick());
             int success = pstm.executeUpdate();
             return  success;
         } catch (SQLException e) {
@@ -62,14 +62,14 @@ public class UserDaoImp implements UserDao {
         Connection conn = JDBCUtil.getConnection(); // 连接数据库
         PreparedStatement pstm = null;
 
-
         try {
-            String sql = "UPDATE users SET uname=?,upwd=?,upermission=? WHERE uid=?";
+            String sql = "UPDATE users SET uname=?,upwd=?,upermission=?,unick=? WHERE uid=?";
             pstm = conn.prepareStatement(sql);
             pstm.setString(1,u.getName());
             pstm.setString(2,u.getPwd());
             pstm.setString(3,u.getPermission());
-            pstm.setInt(4,u.getId());
+            pstm.setString(4,u.getNick());
+            pstm.setInt(5,u.getId());
 
             int suc = pstm.executeUpdate();
             return  suc;
@@ -117,7 +117,7 @@ public class UserDaoImp implements UserDao {
             resultSet = pstm.executeQuery(); // 不需要加 sql
 
             while (resultSet.next()) {
-                user  = new User(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
+                user  = new User(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5));
             }
             return  user;
         } catch (SQLException e) {
@@ -141,7 +141,7 @@ public class UserDaoImp implements UserDao {
             pstm.setInt(1,id);
             resultSet = pstm.executeQuery();
             while (resultSet.next()) {
-                user  = new User(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
+                user  = new User(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4),resultSet.getString(5));
             }
             return  user;
         } catch (SQLException e) {

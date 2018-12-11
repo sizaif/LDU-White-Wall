@@ -3,6 +3,7 @@ package Dao;
 import entity.News;
 
 import java.sql.ResultSet;
+import java.util.List;
 
 public interface NewsDao {
 
@@ -37,4 +38,10 @@ public interface NewsDao {
      * 查询全部信息
      */
     public ResultSet findAllNews();
+
+    /**
+     *  随机查询6条信息
+     * @return List<News>
+     */
+    public List<News> queryRandom();
 }

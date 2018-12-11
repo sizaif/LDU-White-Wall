@@ -9,6 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class NewsDaoImp implements NewsDao {
     @Override
@@ -102,17 +104,37 @@ public class NewsDaoImp implements NewsDao {
 
     @Override
     public ResultSet findAllNews() {
-//        Connection conn = JDBCUtil.getConnection(); // 连接数据库
-//        PreparedStatement pstm = null;
-//        Pageable rs = null;
-//        String sql = "SELECT * FROM news";
-//        try {
-//            pstm = conn.prepareStatement(sql);
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-            return null;
+        Connection conn = JDBCUtil.getConnection(); // 连接数据库
+        PreparedStatement pstm = null;
+        Pageable rs = null;
+        String sql = "SELECT * FROM news";
+        try {
+            pstm = conn.prepareStatement(sql);
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+            return null;
+    }
+
+    @Override
+    public List<News> queryRandom(){
+        List<News> list = new ArrayList<News>();
+
+        Connection conn = JDBCUtil.getConnection();
+        PreparedStatement pstm = null;
+        String sql = "SELECT * FROM news ORDER BY  RAND() LIMIT 6";
+        try {
+            pstm  = conn.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            while (rs.next())
+            {
+                 list.add(new News(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4)));
+            }
+            return list;
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

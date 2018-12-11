@@ -20,7 +20,7 @@
             them = new ThemesDaoImp().findthemeByName(name);
 
             if( them != null ) {
-                out.println("<script>alert('"+name+"已经存在! 请重试.');top.location.href='../Administration/welcomeAdmin.jsp';</script>");
+                out.println("<script>alert('"+name+"已经存在! 请重试.');top.location.href='../Home.jsp';</script>");
             }
             else{
                 new ThemesDaoImp().inserttheme(new Theme(0,name));

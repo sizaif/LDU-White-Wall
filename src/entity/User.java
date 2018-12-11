@@ -5,23 +5,23 @@ public class User {
     private String name;
     private String pwd;
     private String permission;
-
+    private String nick;
     public User(){
         super();
     }
 
-    public User(int id,String username,String userpwd,String userPermisson){
+    public User(int id,String username,String userpwd,String userPermisson,String usernick){
         this.id = id;
         this.name = username;
         this.pwd = userpwd;
         this.permission = userPermisson;
+        this.nick = usernick;
     }
+
 
     public void setId(int id) {
         this.id = id;
     }
-
-
     public void setName(String name) {
         this.name = name;
     }
@@ -29,6 +29,7 @@ public class User {
         this.pwd = pwd;
     }
     public void setPermission(String permission) { this.permission = permission; }
+    public void setNick(String nick) { this.nick = nick; }
     public String getName() {
         return name;
     }
@@ -41,7 +42,7 @@ public class User {
     public String getPermission() {
         return permission;
     }
-
+    public String getNick() { return nick; }
     @Override
     public String toString() {
         return "User [id= " + id + ", username= " + name + ", pwd= " + pwd + ", permission= " + permission + "]";

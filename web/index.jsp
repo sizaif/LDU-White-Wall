@@ -14,18 +14,9 @@
 
 <html>
   <head>
-    <title>测试-Debug</title>
-    <frameset rows="*" cols="163,*" framespacing="1" frameborder="yes" border="1" bordercolor="#333333">
-      <frame src="index_left.jsp" name="leftFrame" scrolling="No" noresize="noresize" id="leftFrame" title="leftFrame" />
-      <frameset rows="110,*" cols="*" framespacing="1" frameborder="yes" border="1" bordercolor="#333333">
-        <frame src="index_top.jsp" name="topFrame" scrolling="No" noresize="noresize" id="topFrame" title="topFrame" />
-        <frame src="index_main.jsp" name="mainFrame" id="mainFrame" title="mainFrame" />
-      </frameset>
-    </frameset>
+    <title></title>
   </head>
   <body>
-
-
-
+    <jsp:include page="/SignIN/login.jsp"></jsp:include>
   </body>
 </html>
