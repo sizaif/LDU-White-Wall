@@ -10,6 +10,7 @@
 <head>
     <title>Title</title>
     <%--<link rel="stylesheet" href="../css/Admin_leftCSS.css" type="text/css" charset="UTF-8">--%>
+    <%--<script src="/js/menu-display.js"></script>--%>
 </head>
 <body>
 
@@ -32,6 +33,7 @@
             </li>
         </ul>
     </div>
+
 </body>
-    <script src="js/menu-display.js"></script>
+    <script src="/js/menu-display.js"></script>
 </html>

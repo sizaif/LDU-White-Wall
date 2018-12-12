@@ -4,15 +4,18 @@ import Dao.UserDao;
 import DaoImp.UserDaoImp;
 import com.mysql.jdbc.StringUtils;
 import entity.User;
+import net.sf.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 //@WebServlet(name = "Servlet_Login",urlPatterns = "/Servlet_Login")
 @WebServlet("/Servlet_Login")
 public class Servlet_Login extends HttpServlet {
+    static JSONObject jsonObject = new JSONObject();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
@@ -23,24 +26,11 @@ public class Servlet_Login extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setContentType("text/html;charset=utf-8");
 
+
         try {
             String user_name = request.getParameter("username");
             String user_pwd = request.getParameter("password");
-            if(StringUtils.isNullOrEmpty(user_name) && StringUtils.isNullOrEmpty(user_pwd))
-            {
-                /*
-                 * 如果为空 则跳转到登陆界面
-                 */
-                //Servlet_Login.initialzation(request, response);
-                try {
-                    response.sendRedirect("/SignIN/login.jsp");
-                }catch(Exception e){
-                    e.printStackTrace();
-                }finally{
-
-                }
-            }
-            else
+            if( ! StringUtils.isNullOrEmpty(user_name) &&  ! StringUtils.isNullOrEmpty(user_pwd))
             {
                 /*
                  * 如果不为空 则进行 登陆验证
@@ -49,11 +39,7 @@ public class Servlet_Login extends HttpServlet {
                  */
                 UserDao userDaoImp = new UserDaoImp();
                 User user = userDaoImp.findUserByNamePwd(user_name,user_pwd);
-                if( user == null)
-                {
-                    request.getRequestDispatcher("/SignIN/login.jsp").forward(request,response);
-                }
-                else
+                if( user != null)
                 {
                     /*
                      *  创建session
@@ -70,20 +56,23 @@ public class Servlet_Login extends HttpServlet {
         }catch(Exception e){
             String user_name  = null;
             String user_pwd = null;
-            request.getRequestDispatcher("/SignIN/login.jsp").forward(request,response);
+            jsonObject.put("forward","/Home.jsp");
         }finally{
-
+            PrintWriter out = response.getWriter();
+            out.println(jsonObject.toString());
+            out.flush();
+            out.close();
         }
     }
 
     private static void initialzation(HttpServletRequest request, HttpServletResponse response) {
 
         try {
-            request.getRequestDispatcher("/Home.jsp").forward(request, response);
-        } catch (ServletException e) {
+            jsonObject.put("forward","/Home.jsp");
+        }catch(Exception e){
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        }finally{
+
         }
     }
 }

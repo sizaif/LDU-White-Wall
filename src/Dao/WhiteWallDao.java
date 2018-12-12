@@ -45,7 +45,12 @@ public interface WhiteWallDao {
      * @return
      * 查询 数据 通过 id
      */
-
     public WhiteWall findWhiteWallById(int id);
+
+    /**
+     *  列出所有
+     * @return
+     */
+    public List<WhiteWall>listAll();
 
 }

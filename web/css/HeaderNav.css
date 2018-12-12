@@ -124,4 +124,142 @@ span.glyphicon.glyphicon-search:focus {
 .logo h1 a {
     color: #fff;
 }
+.nav-account {
+    background: #ff411c;
+    border-radius: 20px;
+    color: #fff;
+    line-height: 24px;
+    float: right;
+    padding: 2px 0;
+    margin-top: 12px;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+.nav-account .button{
+display: inline-block;
+color: #fff;
+font-size: 14px;
+padding: 0 20px;
+}
 /*--//header--*/
+
+/*login css*/
+.SignFlow {
+    overflow: hidden;
+}
+.SignFlow-account {
+    margin-top: 16px;
+    border-bottom: 1px solid #ebebeb;
+    border-radius: 0;
+}
+.SignFlow-supportedCountriesSelectContainer {
+    display: inline-block;
+    float: left;
+    min-width: 72px;
+}
+.SignFlow-accountInputContainer {
+    overflow: hidden
+}
+.SignFlowInput .Input-wrapper {
+    width: 100%;
+    height: 48px;
+    padding: 0;
+    color: #8590a6
+}
+.SignFlowInput input.Input {
+    height: 48px
+}
+input.Input {
+    color: #1a1a1a;
+    height: 24px;
+    line-height: 24px
+}
+.SignFlow input {
+    height: 48px
+}
+.Input {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    /* flex: 1; */
+    padding: 0;
+    overflow: hidden;
+    font-family: inherit;
+    /* font-size: inherit; */
+    font-weight: inherit;
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+}
+.SignFlowInput-errorMask--hidden {
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
+.SignFlowInput-errorMask {
+    position: absolute;
+    right: 0;
+    height: 90%;
+    padding: 12px 0 0 20px;
+    margin-top: -47px;
+    font-size: 14px;
+    color: #f1403c;
+    text-align: right;
+    cursor: text;
+    background: #fff;
+    opacity: 1;
+    box-sizing: border-box;
+    transition: opacity .25s ease;
+}
+.SignFlow-password {
+    position: relative;
+    margin-top: 12px;
+}
+.SignFlow-accountInputContainer {
+    overflow: hidden;
+}
+.SignFlowInput {
+    position: relative;
+}
+.SignFlow-switchPassword {
+    position: absolute;
+    top: 24px;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.SignFlow-submitButton {
+    width: 100%;
+    height: 36px;
+}
+.SignContainer-switch {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    background-color: #f6f6f6;
+    height: 58px;
+    border-top: 1px solid #ebebeb;
+    font-size: 16px;
+}
+button {
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none
+}
+/*end*/

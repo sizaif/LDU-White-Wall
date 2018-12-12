@@ -59,9 +59,9 @@ public class Servlet_Users extends HttpServlet {
                 UserDaoImp mysql = new UserDaoImp();
                 int su = mysql.insertUser(newuser);
                 if (su == 1) {
-                    jsonObject.put("forward", "/SignIN/login.jsp");
+                    jsonObject.put("forward", "/Home.jsp");
                 } else
-                    jsonObject.put("forward", "/SignUP/reger.jsp");
+                    jsonObject.put("forward", "/Home.jsp");
             }else if(action.equalsIgnoreCase("change")) {
                 /*
                  * 修改个人信息

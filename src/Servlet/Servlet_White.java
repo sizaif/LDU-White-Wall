@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 @WebServlet(name = "Servlet_White",urlPatterns = "/Servlet_White")
 public class Servlet_White extends HttpServlet {
@@ -34,23 +35,27 @@ public class Servlet_White extends HttpServlet {
 
         String forward="";
         JSONObject jsonObject =new JSONObject();
-        JSONArray jsonArray = new JSONArray();
         HttpSession session = request.getSession();
-        String action = request.getParameter("action");
-        if(action.equalsIgnoreCase("insert"))
-        {
-            String cont = request.getParameter("contant");
-            WhiteWall whiteWall = new WhiteWall(1,cont);
-            whiteWallDaoImp = new WhiteWallDaoImp();
-            whiteWallDaoImp.insertWhite(whiteWall);
+
+        try {
+            String action = request.getParameter("type");
+            System.out.println(action);
+            if(action.equalsIgnoreCase("insert"))
+            {
+                String cont = request.getParameter("textWhile");
+                WhiteWall whiteWall = new WhiteWall(1,cont);
+                whiteWallDaoImp = new WhiteWallDaoImp();
+                whiteWallDaoImp.insertWhite(whiteWall);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
 
         }
-
-
-
-
-
-
+        PrintWriter out = response.getWriter();
+        out.println(jsonObject.toString());
+        out.flush();
+        out.close();
        // response.sendRedirect(forward);
 //        RequestDispatcher view = request.getRequestDispatcher(forward);
 //

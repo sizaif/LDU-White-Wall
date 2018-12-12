@@ -37,7 +37,7 @@
                                     <div class="SignFlow-password">
                                         <div class="SignFlowInput">
                                             <div class="SignFlow-passwordInput Input-wrapper">
-                                                <input class="Input" type="password" name="password" id="password" value=""  >
+                                                <input class="Input" type="password" name="password" id="password" value=""  placeholder="密码">
                                             </div>
                                             <div class="SignFlowInput-errorMask SignFlowInput-errorMask--hidden"></div>
                                         </div>

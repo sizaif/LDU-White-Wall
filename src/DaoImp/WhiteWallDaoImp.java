@@ -4,9 +4,8 @@ import Dao.WhiteWallDao;
 import JDBCUtil.JDBCUtil;
 import entity.WhiteWall;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class WhiteWallDaoImp implements WhiteWallDao {
@@ -23,10 +22,10 @@ public class WhiteWallDaoImp implements WhiteWallDao {
         Connection conn = JDBCUtil.getConnection(); // 连接数据库
         PreparedStatement pstm = null;
 
-        String sql = "insert into whiteWall (contant) values(?)";
+        String sql = "insert into whiteWall (textWhile) values(?)";
         try {
             pstm = conn.prepareStatement(sql);
-            pstm.setString(1,u.getContant());
+            pstm.setString(1,u.gettextWhite());
             int su = pstm.executeUpdate();
             return  su;
         } catch (SQLException e) {
@@ -44,9 +43,21 @@ public class WhiteWallDaoImp implements WhiteWallDao {
      */
     @Override
     public int deleteWhiteWall(int id) {
+        Connection conn = JDBCUtil.getConnection(); // 连接数据库
+        PreparedStatement pstm = null;
+        String sql = "DELETE  FROM whiteWall  WHERE wid=?";
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1,id);
+            int su = pstm.executeUpdate();
+            return  su;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            JDBCUtil.closeAll(null,pstm,conn);
+        }
         return 0;
     }
-
     /***
      *
      * @param u
@@ -80,5 +91,35 @@ public class WhiteWallDaoImp implements WhiteWallDao {
     @Override
     public WhiteWall findWhiteWallById(int id) {
         return null;
+    }
+
+    /**
+     * 列出所有
+     *
+     * @return
+     */
+    @Override
+    public List<WhiteWall> listAll() {
+        List<WhiteWall> list = new ArrayList<>();
+        Connection conn = JDBCUtil.getConnection(); // 连接数据库
+        PreparedStatement pstm = null;
+        Statement st = null;
+        ResultSet res = null;
+        String sql = "SELECT  * from whitewall";
+
+        try {
+            st = conn.createStatement();
+            res = st.executeQuery(sql);
+            while (res.next())
+            {
+                list.add(new WhiteWall(res.getInt(1),res.getString(2)));
+            }
+            return  list;
+        }catch(Exception e){
+            e.printStackTrace();
+        }finally{
+            JDBCUtil.closeAll(res,null,conn);
+        }
+        return list;
     }
 }

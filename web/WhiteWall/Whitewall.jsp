@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>WhiteWall</title>
+    <%@include file="/HeadTag.jsp"%>
 </head>
 <body>
         <jsp:include page="../HeaderNav.jsp"></jsp:include>

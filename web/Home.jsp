@@ -9,12 +9,11 @@
 <html>
 <head>
     <title>WelcomeUser</title>
-    <script src="./js/jquery-3.3.1.min.js"></script>
+    <%@include file="/HeadTag.jsp"%>
 </head>
 
 <body>
         <jsp:include page="HeaderNav.jsp"></jsp:include>
         <jsp:include page="MenuList.jsp"></jsp:include>
-
 </body>
 </html>
