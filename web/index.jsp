@@ -15,7 +15,7 @@
 <html>
   <head>
     <title></title>
-    <%@include file="/HeadTag.jsp"%>
+    <%--<jsp:include page="/HeadTag.jsp"></jsp:include>--%>
   </head>
   <body>
     <jsp:include page="/Home.jsp"></jsp:include>

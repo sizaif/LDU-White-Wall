@@ -7,14 +7,16 @@
 --%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
     <title>Title</title>
-    <%@include file="/HeadTag.jsp"%>
-    <%--<link rel="stylesheet" href="/css/logCsszhihu.css" type="text/css" media="all">--%>
-
-    <link rel="stylesheet" href="/css/HeaderNav.css" type="text/css" media="all">
+    <%--<%@include file="/HeadTag.jsp"%>--%>
+    <%--&lt;%&ndash;<link rel="stylesheet" href="/css/logCsszhihu.css" type="text/css" media="all">&ndash;%&gt;--%>
+    <%--<script src="/js/jquery-3.3.1.min.js"></script>--%>
+    <%--<script src="/js/bootstrap.min.js"></script>--%>
+    <%--<link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet">--%>
+    <%--<link href="/css/HeaderNav.css" type="text/css" rel="stylesheet">--%>
 </head>
 
 <body>
@@ -23,6 +25,7 @@
         Object user_name = session.getAttribute("username");
         Object user_permission =  session.getAttribute("permission");
     %>
+
     <div class="top-nav">
         <nav class="navbar navbar-default">
             <div class="container">
@@ -40,21 +43,45 @@
                             }
                             else
                             {
-                                out.print("                        <div class=\"nav-account\">\n" +
-                                        "                            <a href=\"/SignIN/Userinfo.jsp\" class=\"button\" ><span>账号信息</span></a>\n" +
-                                        "                            <a href=\"javascript:void(0)\" class=\"button\" onclick=\"Logout()\"><span>登出</span></a>\n" +
+                                out.print("                        <div  class=\"nav-userinfo\">\n" +
+                                        "                            <li class=\"dropdown\">\n" +
+                                        "                                <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">个人信息<strong class=\"caret\"></strong></a>\n" +
+                                        "                                <ul class=\"dropdown-menu\">\n" +
+                                        "                                    <li >\n" +
+                                        "                                        <a href=\"/SignIN/Userinfo.jsp\" class=\"button\" ><span>账号信息</span></a>\n" +
+                                        "                                    </li>\n" +
+                                        "                                    <li class=\"divider\"></li>\n" +
+                                        "                                    <li>\n" +
+                                        "                                        <a href=\"javascript:void(0)\" class=\"button\" onclick=\"Logout()\"><span>登出</span></a>\n" +
+                                        "                                    </li>\n" +
+                                        "                                </ul>\n" +
+                                        "                            </li>\n" +
                                         "                        </div>");
                             }
                         %>
-
+                        <%--<div  class="nav-userinfo">--%>
+                            <%--<li class="dropdown">--%>
+                                <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown">个人信息<strong class="caret"></strong></a>--%>
+                                <%--<ul class="dropdown-menu">--%>
+                                    <%--<li >--%>
+                                        <%--<a href="/SignIN/Userinfo.jsp" class="button" ><span>账号信息</span></a>--%>
+                                    <%--</li>--%>
+                                    <%--<li class="divider"></li>--%>
+                                    <%--<li>--%>
+                                        <%--<a href="javascript:void(0)" class="button" onclick="Logout()"><span>登出</span></a>--%>
+                                    <%--</li>--%>
+                                <%--</ul>--%>
+                            <%--</li>--%>
+                        <%--</div>--%>
                         <div class="usercontrol"></div>
                     </ul>
-                </div>
+                 </div>
                 <!--navigation-->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left cl-effect-5">
+                        <li> <a href="/index.jsp"  ><span data-hover="主页">主页</span></a></li>
                         <li> <a href="#"  ><span data-hover="趣闻轶事">趣闻轶事</span></a></li>
-                        <li> <a href="/WhiteWall/Whitewall.jsp"  ><span data-hover="表白墙">表白墙</span></a></li>
+                        <li> <a href="/Servlet_page?Page=1"  ><span data-hover="表白墙" >表白墙</span></a></li>
                         <li> <a href="/SearchUser/SU_home.jsp"  ><span data-hover="寻人">寻人</span></a></li>
                         <li> <a href="#"  ><span data-hover="留坑">留坑</span></a></li>
                         <li> <a href="#"  ><span data-hover="留坑">留坑</span></a></li>

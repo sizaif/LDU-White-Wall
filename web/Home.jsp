@@ -14,6 +14,6 @@
 
 <body>
         <jsp:include page="HeaderNav.jsp"></jsp:include>
-        <jsp:include page="MenuList.jsp"></jsp:include>
+
 </body>
 </html>

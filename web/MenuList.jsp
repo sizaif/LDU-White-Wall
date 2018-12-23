@@ -13,27 +13,37 @@
     <%--<script src="/js/menu-display.js"></script>--%>
 </head>
 <body>
-
-    <div class="main-menu">
-        <ul class="wp-menu">
-            <li class="menu-item i1" onmouseover="display(this)" onmouseout="hide(this)">
-                <a href="Themes/themes.jsp" target="mainFrame" class="menu-link "> 添加主题</a>
-                <ul class="sub-menu">
-                    <li  class="sub-item i1-1 " ><a href="Themes/themeList1.jsp" target="mainFrame" class="sub-link "> 显示所有主题</a></li>
-                </ul>
-            </li>
-            <li class="menu-item i2" onmouseover="display(this)" onmouseout="hide(this)">
-                <a href="News/news_add.jsp" target="mainFrame" class="menu-link "> 添加新闻</a>
-                <ul class="sub-menu">
-                    <li class="sub-item i2-1 "><a href="News/news_list.jsp" target="mainFrame" class="sub-link "> 显示所有新闻</a></li>
-                </ul>
-            </li>
-            <li class="menu-item i3" onmouseover="display(this)" onmouseout="hide(this)">
-                <a href="/WhiteWall/Add.jsp" target="" class="menu-link "> 发布表白</a>
-            </li>
-        </ul>
+<div class="panel-group" id="panel-804515">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="panel-title collapsed" data-toggle="collapse" data-parent="#panel-804515" href="#panel-element-498571">表白选项</a>
+        </div>
+        <div id="panel-element-498571" class="panel-collapse collapse">
+            <div class="panel-body">
+                <a href="/WhiteWall/Add.jsp">发布表白</a>
+            </div>
+            <div class="panel-body">
+                <a href="#">管理自己的表白</a>
+            </div>
+        </div>
     </div>
-
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a class="panel-title" data-toggle="collapse" data-parent="#panel-804515" href="#panel-element-766719">寻人相关</a>
+        </div>
+        <div id="panel-element-766719" class="panel-collapse in">
+            <div class="panel-body">
+                <a href="#">发布寻人通缉令</a>
+            </div>
+            <div class="panel-body">
+                <a href="#">管理通缉令</a>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
-    <script src="/js/menu-display.js"></script>
+<style>
+    .panel-group .panel{border-radius: 25px;}
+    .panel-default>.panel-heading{border-radius: 25px;}
+</style>
 </html>
