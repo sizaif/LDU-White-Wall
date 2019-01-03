@@ -5,6 +5,9 @@ import entity.WhiteWall;
 import java.util.List;
 
 public interface WhiteWallDao {
+
+    static final String SEARCH_WHITEWALL = "whitewall";
+
     /**
      * 插入一条数据:
      * 返回值：int
@@ -48,9 +51,17 @@ public interface WhiteWallDao {
     public WhiteWall findWhiteWallById(int id);
 
     /**
-     *  列出所有
+     *  列出所有表白内容
      * @return
      */
     public List<WhiteWall>listAll();
 
+    /**
+     *  返回总数目
+     * @param keys
+     * @return
+     */
+    public int getCount(String keys);
+
+    List<WhiteWall> getPageWhiteWall(int startIndex,int offset);
 }

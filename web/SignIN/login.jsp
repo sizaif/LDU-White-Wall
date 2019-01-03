@@ -10,6 +10,8 @@
 <head>
     <title>Sign in</title>
     <%--<link rel="stylesheet" href="css/Css_of_Input.css" type="text/css" charset="UTF-8">--%>
+
+
     <link rel="stylesheet" href="/css/logCsszhihu.css" type="text/css" charset="UTF-8">
 </head>
 <body>
@@ -24,7 +26,7 @@
                         </div>
                         <div class="SignContainer-inner">
                             <div class="Login-content">
-                                <form  id="form" name="form"  class="SignFlow" method="post" action="/Servlet_Login"  >
+                                <form  role="form" enctype="multipart/form-data">
                                     <div class="SignFlow-account">
                                         <div class="SignFlow-supportedCountriesSelectContainer"></div>
                                         <div class="SignFlowInput SignFlow-accountInputContainer">
@@ -43,8 +45,9 @@
                                         </div>
                                         <button tabindex="-1" type="button" class="Button SignFlow-switchPassword Button--plain"></button>
                                     </div>
-                                    <span><button type="submit" class="Button SignFlow-submitButton Button--primary Button--blue"  name="submit" >登陆</button></span>
+
                                 </form>
+                                <span><button  class="Button SignFlow-submitButton Button--primary Button--blue"  name="submit" onclick="javascript:login()" >登陆</button></span>
                             </div>
                             <div class="SignContainer-switch">
                                 无账号?
@@ -63,5 +66,29 @@
     </div>
 
 </body>
+<script>
+    function login() {
+        var Name = document.getElementById('username').value;
+        var Pwd = document.getElementById('password').value;
+        $.ajax({
+            type:"POST",
+            url : "/Servlet_Login",
+            data:{username:Name,password:Pwd},
+            dataType:"json",
+            success: function (data) {
+                if(data.success=="fail"){
+                    alert("用户名不存在或密码错误!");
+                }
+                window.location.href=data.forward;
+            },
+            error:function (data) {
+                alert("登录失败!");
+                window.location.href=data.forward;
+            }
+        })
+    }
+</script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 </html>

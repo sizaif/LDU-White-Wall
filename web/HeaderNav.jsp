@@ -32,61 +32,43 @@
                 <!--右半部分-->
                 <div class="navbar-header navbar-right">
                     <ul>
-                        <%
-                            if( user_name ==null || user_permission ==null)
-                            {
-                                out.print("                        <div class=\"nav-account\">\n" +
-                                        "                            <button class=\"button\" id=\"log\" >登录</button>\n" +
-                                        "                            <button class=\"button\" id=\"reger\">注册</button>\n" +
-                                        "                        </div>");
+                        <input id="getUserPermission" value="<%=user_permission%>" hidden/>
+                        <input id="getUserName" value="<%=user_name%>" hidden/>
+                        <div class="nav-account" id="logUI">
+                            <button class="button" id="log" >登录</button>
+                            <button class="button" id="reger">注册</button>
+                        </div>
+                        <div  class="nav-userinfo" id="infoUI">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人信息<strong class="caret"></strong></a>
+                                <ul class="dropdown-menu">
+                                    <li >
+                                        <a href="/SignIN/Userinfo.jsp" class="button" ><span>账号信息</span></a>
+                                    </li>
+                                    <li id="userMages" id="userMages" hidden>
+                                        <a href="/Admin/Admin-index.jsp" class="button"><span>后台管理</span></a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="javascript:void(0)" class="button" onclick="Logout()"><span>登出</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </div>
 
-                            }
-                            else
-                            {
-                                out.print("                        <div  class=\"nav-userinfo\">\n" +
-                                        "                            <li class=\"dropdown\">\n" +
-                                        "                                <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">个人信息<strong class=\"caret\"></strong></a>\n" +
-                                        "                                <ul class=\"dropdown-menu\">\n" +
-                                        "                                    <li >\n" +
-                                        "                                        <a href=\"/SignIN/Userinfo.jsp\" class=\"button\" ><span>账号信息</span></a>\n" +
-                                        "                                    </li>\n" +
-                                        "                                    <li class=\"divider\"></li>\n" +
-                                        "                                    <li>\n" +
-                                        "                                        <a href=\"javascript:void(0)\" class=\"button\" onclick=\"Logout()\"><span>登出</span></a>\n" +
-                                        "                                    </li>\n" +
-                                        "                                </ul>\n" +
-                                        "                            </li>\n" +
-                                        "                        </div>");
-                            }
-                        %>
-                        <%--<div  class="nav-userinfo">--%>
-                            <%--<li class="dropdown">--%>
-                                <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown">个人信息<strong class="caret"></strong></a>--%>
-                                <%--<ul class="dropdown-menu">--%>
-                                    <%--<li >--%>
-                                        <%--<a href="/SignIN/Userinfo.jsp" class="button" ><span>账号信息</span></a>--%>
-                                    <%--</li>--%>
-                                    <%--<li class="divider"></li>--%>
-                                    <%--<li>--%>
-                                        <%--<a href="javascript:void(0)" class="button" onclick="Logout()"><span>登出</span></a>--%>
-                                    <%--</li>--%>
-                                <%--</ul>--%>
-                            <%--</li>--%>
-                        <%--</div>--%>
-                        <div class="usercontrol"></div>
                     </ul>
                  </div>
                 <!--navigation-->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-left cl-effect-5">
                         <li> <a href="/index.jsp"  ><span data-hover="主页">主页</span></a></li>
-                        <li> <a href="#"  ><span data-hover="趣闻轶事">趣闻轶事</span></a></li>
-                        <li> <a href="/Servlet_page?Page=1"  ><span data-hover="表白墙" >表白墙</span></a></li>
-                        <li> <a href="/SearchUser/SU_home.jsp"  ><span data-hover="寻人">寻人</span></a></li>
-                        <li> <a href="#"  ><span data-hover="留坑">留坑</span></a></li>
-                        <li> <a href="#"  ><span data-hover="留坑">留坑</span></a></li>
-                        <li> <a href="#"  ><span data-hover="留坑">留坑</span></a></li>
-                        <li> <a href="#"  ><span data-hover="关于我们">关于我们</span></a></li>
+                        <li> <a href="/Servlet_PageService?Page=1&Dao=anecdote"  ><span data-hover="趣闻轶事">趣闻轶事</span></a></li>
+                        <li> <a href="/Servlet_PageService?Page=1&Dao=whitewall"  ><span data-hover="表白墙" >表白墙</span></a></li>
+                        <li> <a href="/404.Not%20Found.html"  ><span data-hover="寻人">寻人</span></a></li>
+                        <li> <a href="/do_jpg.jsp"  ><span data-hover="照片展示">照片展示</span></a></li>
+                        <li> <a href="/404.Not%20Found.html"  ><span data-hover="留坑">留坑</span></a></li>
+                        <li> <a href="/404.Not%20Found.html"  ><span data-hover="留坑">留坑</span></a></li>
+                        <li> <a href="/404.Not%20Found.html"  ><span data-hover="关于我们">关于我们</span></a></li>
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
@@ -148,42 +130,49 @@
                 </div>
                 <div class="modal-body">
                     <form  role="form"  enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">账号</label>
+                        <div class="form-group another">
+                            <label class="col-sm-3 control-label">
+                                账<i class="ingone">账号</i>号
+                            </label>
                             <div class="col-sm-9">
-                                <li>
-                                    <input type="text" class="form-control" name="username" id="register_username" value="" placeholder="账号">
-                                </li>
+                                <ol>
+                                    <input type="text" class="form-control" name="username" id="register_username" value="" placeholder="账号" >
+                                </ol>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">昵称</label>
+                        <div class="form-group another">
+                            <label class="col-sm-3 control-label">
+                                昵<i class="ingone">昵称</i>称
+                            </label>
                             <div class="col-sm-9">
-                                <li>
+                                <ol>
                                     <input type="text" class="form-control" name="nick" id="register_nick" value="" placeholder="昵称">
-                                </li>
+                                </ol>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">密码</label>
+                        <div class="form-group another">
+                            <label class="col-sm-3 control-label">
+                                密<i class="ingone">密码</i>码
+                            </label>
                             <div class="col-sm-9">
-                                <li>
-                                    <input type="password" class="form-control" name="password" id="register_password" placeholder="密码 (长度不少于 8 位)" value="">
-                                </li>
+                                <ol>
+                                    <input  type="password" class="form-control" name="password" id="register_password" placeholder="密码 (长度不少于 8 位)" value="">
+                                </ol>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group another">
                             <label class="col-sm-3 control-label">重复密码</label>
                             <div class="col-sm-9">
-                                <li>
-                                    <input type="password" class="form-control" name="password2" id="_registerpassword2" placeholder="重复密码"value="">
-                                </li>
+                                <ol>
+                                    <input type="password" class="form-control" name="password2" id="register_password2" placeholder="重复密码"value="">
+                                </ol>
                             </div>
                         </div>
                         <%--<li>--%>
                         <%--<input type="text" class="Input" name="age" placeholder="年龄" id="age">--%>
                         <%--</li>--%>
                     </form>
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit"  class="btn btn-primary" onclick="CheckUserInfoAndRegister()">注册</button>
@@ -210,6 +199,20 @@
             $('#RegisteredModal').modal("show");
         });
 
+        var userPer = document.getElementById('getUserPermission').value;
+        var userNam = document.getElementById('getUserName').value;
+        console.log(userPer);
+        console.log(userNam);
+        if( userNam == "null" || userPer== "null" ){
+            document.getElementById('infoUI').style.display="none";
+
+        }
+        else{
+
+            document.getElementById('logUI').style.display="none";
+            document.getElementById("userMages").style.display="inline";
+
+        }
     });
     <%-- Logout--%>
     function Logout() {
@@ -306,6 +309,54 @@
         return false;
     }
 </script>
+<style>
+    .modal-titleswitch-nav-wrap{
+        color: #1e88e5;
+    }
+    .modal-body
+    {
+        height: 230px;
+    }
+    .modal-header
+    {
+        border: none;
+        text-align: center;
+        font-family: 仿宋;
+    }
+    .modal-footer
+    {
+        border: none;
+    }
+    .another {
+        position: relative;
+        height: 20%;
+    }
+
+    label.col-sm-3
+    {
+        height: 38px;
+        margin-bottom: 0px;
+        text-align: right;
+        font-family: 华文仿宋;
+        font-size: 20px;
+        padding-top: 4px;
+        padding-right: 0px;
+        width: 30%;
+
+    }
+    i{
+        font-style:normal;
+    }
+    .ingone{
+        color: #ffffff;
+        font-size: 20px;
+    }
+    .col-sm-9{
+        padding-left: 0px;
+        height: 38px;
+        width: 70%;
+    }
+</style>
 </html>
 
 

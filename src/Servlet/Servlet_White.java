@@ -1,64 +1,86 @@
 package Servlet;
 
-import Dao.WhiteWallDao;
-import DaoImp.UserDaoImp;
 import DaoImp.WhiteWallDaoImp;
-import entity.User;
 import entity.WhiteWall;
-import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.apache.commons.fileupload.RequestContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletInputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 @WebServlet(name = "Servlet_White",urlPatterns = "/Servlet_White")
 public class Servlet_White extends HttpServlet {
-    private WhiteWallDaoImp whiteWallDaoImp;
-    public Servlet_White()
-    {
-        super();
-        whiteWallDaoImp = new WhiteWallDaoImp();
-    }
+
+
+    String lastboundary = ""; // 结束分界符字符串
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
 
-        String forward="";
-        JSONObject jsonObject =new JSONObject();
-        HttpSession session = request.getSession();
+            response.setContentType("text/html;charset=UTF-8");
+            request.setCharacterEncoding("UTF-8");
+            response.setCharacterEncoding("UTF-8");
 
-        try {
-            String action = request.getParameter("type");
-            System.out.println(action);
-            if(action.equalsIgnoreCase("insert"))
-            {
-                String cont = request.getParameter("textWhile");
-                WhiteWall whiteWall = new WhiteWall(1,cont);
-                whiteWallDaoImp = new WhiteWallDaoImp();
-                whiteWallDaoImp.insertWhite(whiteWall);
+            String forward="";
+            JSONObject jsonObject =new JSONObject();
+
+
+
+            try {
+                String textArea = request.getParameter("textArea");
+                String action = request.getParameter("type");
+                String filepath = request.getParameter("filepath");
+                String userID = request.getParameter("userID");
+                int begin = filepath.indexOf("/upload");
+                int last = filepath.length();
+                filepath = filepath.substring(begin,last);
+                int id ;
+                try {
+                        id = Integer.getInteger(userID.trim());
+                        if(action==null)
+                        {
+                            jsonObject.put("success","fail");
+                        }
+                        else
+                        {
+                            WhiteWall wall = new WhiteWall(1,textArea,filepath,id);
+                            int su = new WhiteWallDaoImp().insertWhite(wall);
+                            if( su==0)
+                            {
+                                jsonObject.put("success","fail");
+                            }
+                            else {
+                                jsonObject.put("success", "success");
+                            }
+                        }
+                }catch(Exception e){
+                    jsonObject.put("success","fail");
+                }
+
+            }catch(Exception e){
+
+            }finally{
+
             }
-        }catch(Exception e){
-            e.printStackTrace();
-        }finally{
-
-        }
-        PrintWriter out = response.getWriter();
-        out.println(jsonObject.toString());
-        out.flush();
-        out.close();
-       // response.sendRedirect(forward);
-//        RequestDispatcher view = request.getRequestDispatcher(forward);
-//
-//        view.forward(request,response);
+            PrintWriter out = response.getWriter();
+            out.println(jsonObject.toString());
+            out.flush();
+            out.close();
     }
 }

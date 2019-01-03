@@ -13,8 +13,11 @@ is a website  used by jsp and servlet and java
 *
 **************************************************/
 
-LDU-White-Wall
-登陆注册逻辑:
+
+接下来进行:
+    数据库 添加图片,  读取图片
+    
+    评论系统
  
 
     

@@ -1,17 +1,12 @@
 <component name="libraryTable">
   <library name="commons-beanutils-1.7.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../jsonJar/commons-beanutils-1.7.0.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../jsonJar/commons-collections-3.2.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../jsonJar/commons-httpclient-3.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../jsonJar/commons-lang-2.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../jsonJar/commons-logging-1.1.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../jsonJar/ezmorph-1.0.3.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../jsonJar/json-lib-2.4-jdk15.jar!/" />
       <root url="file://$PROJECT_DIR$/web/WEB-INF/lib" />
+      <root url="file://$PROJECT_DIR$/web/WEB-INF/lib/jsonJar" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
     <jarDirectory url="file://$PROJECT_DIR$/web/WEB-INF/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/web/WEB-INF/lib/jsonJar" recursive="false" />
   </library>
 </component>

@@ -2,10 +2,12 @@ package Dao;
 
 import entity.User;
 
+import java.security.PublicKey;
 import java.util.List;
 
 public interface UserDao {
 
+   static  final  String SEARCH_USER="users";
     /**
      * 插入一条数据:
      * 返回值：int
@@ -58,5 +60,25 @@ public interface UserDao {
      */
 
     public User findUserById(int id);
+
+   /**
+    *  获取总数
+    * @return
+    */
+    int getCount(String keys);
+
+   /**
+    * 得到所有用户
+    * @return
+    */
+    List<User> getAllUser();
+
+   /**
+    *  通过昵称进行模糊查询
+    * @param nick
+    * @return
+    */
+   List<User>SearchUserFuzzyByNick(String nick);
+
 
 }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="WhiteWall:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/WhiteWall_war</output-path>
+    <root id="archive" name="WhiteWall_war.war">
+      <element id="artifact" artifact-name="Jsp1.1:war exploded" />
+    </root>
+  </artifact>
+</component>

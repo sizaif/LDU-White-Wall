@@ -1,7 +1,6 @@
 package DaoImp;
 
 import Dao.NewsDao;
-import Dao.Pageable;
 import JDBCUtil.JDBCUtil;
 import entity.News;
 
@@ -106,7 +105,7 @@ public class NewsDaoImp implements NewsDao {
     public ResultSet findAllNews() {
         Connection conn = JDBCUtil.getConnection(); // 连接数据库
         PreparedStatement pstm = null;
-        Pageable rs = null;
+
         String sql = "SELECT * FROM news";
         try {
             pstm = conn.prepareStatement(sql);
