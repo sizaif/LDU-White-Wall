@@ -13,8 +13,8 @@ public class JDBCUtil {
         try {
             String url = "jdbc:mysql://localhost:3306/123dd?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8";
             String name = "root";
+//            String pwd = "root@admin@123FUCK";
             String pwd = "root";
-
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(url, name, pwd);
 

@@ -25,7 +25,7 @@ public class Servlet_Upload extends HttpServlet {
 
     private WhiteWallDaoImp whiteWallDaoImp;
     // 上传配置
-    int memory_threshold   = 1024 * 1024 * 10;  // 3MB`
+    int memory_threshold   = 1024 * 1024 * 10;  // 10MB`
     int max_file_size      = 1024 * 1024 * 40; // 40MB
     int max_request_size   = 1024 * 1024 * 50; // 50MB
 
@@ -126,7 +126,7 @@ public class Servlet_Upload extends HttpServlet {
                         File storeFile = new File(filePath);// 创建写入file
                         item.write(storeFile);// 写入到本地
                         new File(filePath).renameTo(new File(newFilePath)); //修改文件名字
-//                        System.out.println(" img: "+newFileName +" imgpath : "+newFilePath);
+                        System.out.println(" img: "+newFileName +" imgpath : "+newFilePath);
 
                         paramMap.put("fileName", newFileName);
                         paramMap.put("filePath", slash_directory+upload_directory+slash_directory+newFileName);

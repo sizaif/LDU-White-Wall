@@ -1,10 +1,13 @@
 package Servlet.Admin;
 
+import DaoImp.AdminDaoImp;
 import DaoImp.AnecdoteDaoImp;
 import DaoImp.UserDaoImp;
 import DaoImp.WhiteWallDaoImp;
+import JDBCUtil.JDBCUtil;
 import entity.User;
 import net.sf.json.JSONObject;
+import sun.rmi.transport.Connection;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 @WebServlet(name = "Servlet_Admin",urlPatterns = "/Servlet_Admin")
 public class Servlet_Admin extends HttpServlet {
@@ -80,6 +84,12 @@ public class Servlet_Admin extends HttpServlet {
                         jsonObject.put("success","fail");
                 }
                 jsonObject.put("forward","/Admin/Admin-table.jsp");
+            }else if( action.equalsIgnoreCase("photo")){
+
+                    List<String> list = new AdminDaoImp().getAllPhoto();
+                    request.setAttribute("allimg",list);
+                    request.setAttribute("length",list.size());
+                    request.getRequestDispatcher("/Admin/Admin-gallery.jsp").forward(request,response);
             }
 
         }catch(NullPointerException e){

@@ -67,7 +67,7 @@
                                     <div class="thumbnail" >
                                         <div>
                                         <c:if test="${whiteWall.imageurl !=null}">
-                                            <img  id="whiteimg${j.index}" width="100%" height="160px" style="border-radius: 8px;"  src="${whiteWall.imageurl}"  />
+                                            <img  id="whiteimg${j.index}" width="auto" height="160px" style="border-radius: 8px;"  src="${whiteWall.imageurl}"  />
                                         </c:if>
                                             <div class="caption">
                                                 <%--<h3> ${whiteWall.id}</h3>--%>

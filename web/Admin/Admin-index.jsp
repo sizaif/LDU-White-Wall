@@ -28,6 +28,12 @@
 
 </head>
 <body>
+    <%
+        Object userper = session.getAttribute("permission");
+        if(userper==null || userper.equals("user")){
+            response.sendRedirect("/Home.jsp");
+        }
+    %>
     <%--Header start--%>
     <%@include file="Admin-header.jsp"%>
     <%--Header end--%>

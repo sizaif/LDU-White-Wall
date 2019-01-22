@@ -13,6 +13,15 @@
     <%--<script src="/js/menu-display.js"></script>--%>
 </head>
 <body>
+        <%
+            Object userID = session.getAttribute("userid");
+            String id ="" ;
+            try {
+                id = userID.toString();
+            }catch(NullPointerException e){
+                response.sendRedirect("/Home.jsp");
+            }
+        %>
 <div class="panel-group" id="panel-804515">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -23,7 +32,7 @@
                 <a href="/WhiteWall/Add.jsp">发布表白</a>
             </div>
             <div class="panel-body">
-                <a href="#">管理自己的表白</a>
+                <a href="/Servlet_User?type=manage&uid=<%=id%>">管理自己的表白</a>
             </div>
         </div>
     </div>

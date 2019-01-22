@@ -64,10 +64,10 @@
                         <li> <a href="/index.jsp"  ><span data-hover="主页">主页</span></a></li>
                         <li> <a href="/Servlet_PageService?Page=1&Dao=anecdote"  ><span data-hover="趣闻轶事">趣闻轶事</span></a></li>
                         <li> <a href="/Servlet_PageService?Page=1&Dao=whitewall"  ><span data-hover="表白墙" >表白墙</span></a></li>
-                        <li> <a href="/404.Not%20Found.html"  ><span data-hover="寻人">寻人</span></a></li>
+                        <li> <a href="/WhiteWall/Add.jsp"  ><span data-hover="寻人">寻人</span></a></li>
                         <li> <a href="/do_jpg.jsp"  ><span data-hover="照片展示">照片展示</span></a></li>
                         <li> <a href="/404.Not%20Found.html"  ><span data-hover="留坑">留坑</span></a></li>
-                        <li> <a href="/404.Not%20Found.html"  ><span data-hover="留坑">留坑</span></a></li>
+                        <%--<li> <a href="/404.Not%20Found.html"  ><span data-hover="留坑">留坑</span></a></li>--%>
                         <li> <a href="/404.Not%20Found.html"  ><span data-hover="关于我们">关于我们</span></a></li>
                     </ul>
                     <div class="clearfix"> </div>
@@ -210,8 +210,9 @@
         else{
 
             document.getElementById('logUI').style.display="none";
-            document.getElementById("userMages").style.display="inline";
-
+            if(userPer=="admin"){
+                document.getElementById("userMages").style.display="inline";
+            }
         }
     });
     <%-- Logout--%>

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.mysql.cj.util.StringUtils" %><%--
   Created by IntelliJ IDEA.
   User: SIZ
   Date: 12/4/2018
@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>添加</title>
     <%@include file="/HeadTag.jsp"%>
     <%--<script src="/js/jquery-3.3.1.min.js"></script>--%>
 
@@ -16,6 +16,11 @@
 <body>
         <%
             Object userID = session.getAttribute("userid");
+            try {
+                userID.toString();
+            }catch(NullPointerException e){
+                response.sendRedirect("/Home.jsp");
+            }
         %>
 
         <div class="container">
@@ -34,7 +39,7 @@
                     </div>
                     <div>
                     <form  role="form1" name="form1" enctype="multipart/form-data" >
-                        <<input type="text" id="userID" value="<%=userID%>" hidden>
+                        <input type="text" id="userID" value="<%=userID%>" hidden>
                         <div class="form-group">
                             <label for="photofile">图片</label>
                             <div  width="10%" onclick="$('#photofile').click()">
@@ -43,7 +48,7 @@
                             <input  class="addphoto" type="file" name="photofile" id="photofile" onchange="uploadimg()" >
                         </div>
                     </form>
-                        <span><button id="submitbtn" class="btn btn-default"  onclick="javascript:submit()">发布</button></span>
+                        <span><button id="submitbtn" class="btn btn-default"  onclick="submit()">发布</button></span>
                     </div>
                 </div>
                 <div id="result"></div>
@@ -56,7 +61,7 @@
         var textArea = editor.txt.html();
         var filepath = document.getElementById('showphoto').src;
         var userID = $('input[id=userID]').val();
-        alert(user);
+        // alert(userID);
         var type ="insert";
         // alert(textArea);
         if(textArea=="<p><br></p>")
@@ -71,12 +76,12 @@
             dataType:"json",
             success: function (data) {
                 console.log(data);
-                if(data["success"]){
+                if(data["success"]=="success"){
                     alert("发布成功!");
-                    window.location.reload();
+                    window.location.href=data.forward;
                 }else {
                     alert("发布失败!");
-                    window.location.reload();
+                    window.location.href=data.forward;
                 }
 
             },

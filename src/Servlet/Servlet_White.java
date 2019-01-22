@@ -39,9 +39,6 @@ public class Servlet_White extends HttpServlet {
 
             String forward="";
             JSONObject jsonObject =new JSONObject();
-
-
-
             try {
                 String textArea = request.getParameter("textArea");
                 String action = request.getParameter("type");
@@ -52,29 +49,35 @@ public class Servlet_White extends HttpServlet {
                 filepath = filepath.substring(begin,last);
                 int id ;
                 try {
-                        id = Integer.getInteger(userID.trim());
-                        if(action==null)
-                        {
-                            jsonObject.put("success","fail");
-                        }
-                        else
-                        {
-                            WhiteWall wall = new WhiteWall(1,textArea,filepath,id);
-                            int su = new WhiteWallDaoImp().insertWhite(wall);
-                            if( su==0)
+                        if(action.equalsIgnoreCase("insert")){
+                            id = Integer.parseInt(userID.trim());
+                            if(action==null)
                             {
                                 jsonObject.put("success","fail");
                             }
-                            else {
-                                jsonObject.put("success", "success");
+                            else
+                            {
+                                WhiteWall wall = new WhiteWall(1,textArea,filepath,id);
+                                int su = new WhiteWallDaoImp().insertWhite(wall);
+                                if( su==0)
+                                {
+                                    jsonObject.put("success","fail");
+                                    jsonObject.put("forward","/WhiteWall/Whitewall.jsp");
+                                }
+                                else {
+                                    jsonObject.put("success", "success");
+                                    jsonObject.put("forward","/WhiteWall/Whitewall.jsp");
+                                }
                             }
                         }
+
                 }catch(Exception e){
                     jsonObject.put("success","fail");
+                    jsonObject.put("forward","/WhiteWall/Whitewall.jsp");
                 }
 
             }catch(Exception e){
-
+                    e.printStackTrace();
             }finally{
 
             }

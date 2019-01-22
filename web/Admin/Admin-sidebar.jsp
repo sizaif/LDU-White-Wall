@@ -17,7 +17,7 @@
                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
                     <li><a href="admin-user.html" class="am-cf"><span class="am-icon-check"></span> 个人资料<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span></a></li>
                     <li><a href="admin-help.html"><span class="am-icon-puzzle-piece"></span> 帮助页</a></li>
-                    <li><a href="admin-gallery.html"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">24</span></a></li>
+                    <li><a href="/Servlet_Admin?type=photo"><span class="am-icon-th"></span> 相册页面<span class="am-badge am-badge-secondary am-margin-right am-fr">50</span></a></li>
                     <li><a href="admin-log.html"><span class="am-icon-calendar"></span> 系统日志</a></li>
                     <li><a href="/Admin/Admin-404.jsp"><span class="am-icon-bug"></span> 404</a></li>
                 </ul>
@@ -30,7 +30,7 @@
         <div class="am-panel am-panel-default admin-sidebar-panel">
             <div class="am-panel-bd">
                 <p><span class="am-icon-bookmark"></span> 公告</p>
-                <p>时光静好，与君语；细水流年，与君同。—— Amaze UI</p>
+                <p>时光静好，与君语；细水流年，与君同.</p>
             </div>
         </div>
     </div>
